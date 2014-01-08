@@ -1,16 +1,24 @@
-void output(unsigned long decimal, unsigned int length, unsigned int delay, unsigned int* raw, unsigned int protocol) {
+void output(unsigned long long decimal, unsigned int length, unsigned int delay, unsigned int* raw, unsigned int protocol) {
 
   if (decimal == 0) {
     Serial.print("Unknown encoding.");
   } else {
     char* b = dec2binWzerofill(decimal, length);
-    Serial.print("Decimal: ");
-    Serial.print(decimal);
-    Serial.print(" (");
+    Serial.print("Decimal top 32 bits: ");
+    Serial.print((unsigned long)(decimal >> 32));
+        Serial.print(" bottom 32 bits: ");
+    Serial.println((unsigned long)(decimal));
+
+    Serial.print("Hex: ");
+    Serial.print((unsigned long)(decimal >> 32), HEX);
+    Serial.println((unsigned long)(decimal), HEX);
+    
+    Serial.print("(");
     Serial.print( length );
     Serial.print("Bit) Binary: ");
-    Serial.print( b );
-    Serial.print(" Tri-State: ");
+    Serial.println( b );
+    
+    Serial.print("Tri-State: ");
     Serial.print( bin2tristate( b) );
     Serial.print(" PulseLength: ");
     Serial.print(delay);

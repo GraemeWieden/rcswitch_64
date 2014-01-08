@@ -20,7 +20,9 @@ void setup() {
 
 void loop() {
   if (mySwitch.available()) {
+    mySwitch.disableReceive();
     output(mySwitch.getReceivedValue(), mySwitch.getReceivedBitlength(), mySwitch.getReceivedDelay(), mySwitch.getReceivedRawdata(),mySwitch.getReceivedProtocol());
+    mySwitch.enableReceive(0);
     mySwitch.resetAvailable();
   }
 }
