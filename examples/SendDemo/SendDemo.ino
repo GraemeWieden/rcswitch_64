@@ -21,7 +21,7 @@ void setup() {
   // mySwitch.setPulseLength(320);
   
   // Optional set protocol (default is 1, will work for most outlets)
-  // mySwitch.setProtocol(2);
+  mySwitch.setProtocol(4);
   
   // Optional set number of transmission repetitions.
   // mySwitch.setRepeatTransmit(15);
@@ -31,28 +31,28 @@ void setup() {
 void loop() {
 
   /* See Example: TypeA_WithDIPSwitches */
-  mySwitch.switchOn("11111", "00010");
-  delay(1000);
-  mySwitch.switchOn("11111", "00010");
-  delay(1000);
+  //mySwitch.switchOn("11111", "00010");
+  //delay(1000);
+  //mySwitch.switchOn("11111", "00010");
+  //delay(1000);
 
   /* Same switch as above, but using decimal code */
-  mySwitch.send(5393, 24);
-  delay(1000);  
-  mySwitch.send(5396, 24);
-  delay(1000);  
+  //mySwitch.send(5393, 24);
+  //delay(1000);  
+  //mySwitch.send(5396, 24);
+  //delay(1000);  
 
   /* Same switch as above, but using binary code */
-  mySwitch.send("000000000001010100010001");
+  mySwitch.send("01010101000000000000110010100000000000011111111");
   delay(1000);  
-  mySwitch.send("000000000001010100010100");
+  mySwitch.send("01010101000000000000110010100000000000101111111");
   delay(1000);
 
   /* Same switch as above, but tri-state code */ 
-  mySwitch.sendTriState("00000FFF0F0F");
-  delay(1000);  
-  mySwitch.sendTriState("00000FFF0FF0");
-  delay(1000);
+  //mySwitch.sendTriState("00000FFF0F0F");
+  //delay(1000);  
+  //mySwitch.sendTriState("00000FFF0FF0");
+  //delay(1000);
 
-  delay(20000);
+  delay(5000);
 }
